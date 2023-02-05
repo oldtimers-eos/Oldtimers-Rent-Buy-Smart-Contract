@@ -1,0 +1,13 @@
+# Ignoring files:
+
+# dependencies
+/node_modules
+/artifacts
+/cache
+/typechain
+
+# local env files
+.env*.local
+.env
+
+install.txt
