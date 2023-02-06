@@ -53,7 +53,7 @@ $ yarn hardhat verify --network trustevm "oldtimersrentbuy"
 ## Oldtimers Rent & Buy SC Details
 
 Oldtimers (Rent & Buy) SC is made up of experienced blockchain developers (team members) from Oldtimers Offer platform. The SC is a Proof of Concept for Renting & Buying Classic Vehicles and belong as a part of applying for the [ENF Grant](https://eosnetwork.com/blog/eos-network-foundation-grant-framework-guidelines/) program. Our hard work is open source and help developers a lot to create simular SCs for marketplace on blockchain (EVM is compatible, but our approach is strictly to [Trust EVM](https://trust.one/)). 
-It can be very easy to use for of real estate, sea vessels or books projects. Our approach is highly innovative in the blockchain industry and we are so proud of it. The solution is for renting, selling and reviewing of classic vehicles.    
+It can be very easy to use for real estate, sea vessels or books projects. Our approach is highly innovative in the blockchain industry and we are so proud of it. The solution is for renting, selling and reviewing of classic vehicles.    
 The SC has the following advantages and rules:
 
 -   **1. Easy to list a classic vehicle on blockchain:** User can very simple add vehicle to blockchain. It is free service.
@@ -66,7 +66,7 @@ The SC has the following advantages and rules:
 
 -   **3.b. Advantage in Vehicle Reviews:** The review point to vehicle can give only users who rent that vehicle and the smart contract is secured that users can make it only one time. On that way, we prevent some kind of manipulation. We have finally trusted review points on market (Innovative Solution!). 
 
--   **4. Service fee:** We already mentioned that listing is free, but we put on our smart contract fee for renting and selling and in that way we create a profitable blockchain solution. Creator of the SC can chane fee for renting or selling. Also, with "accumulatedProfit" we can follow how much money make our aplication (smart contract). 
+-   **4. Service fee:** We already mentioned that listing is free, but we put on our smart contract fee for renting and selling and in that way we create a profitable blockchain solution. Creator of the SC can change fee for renting or selling. Also, with "accumulatedProfit" we can follow how much money make our aplication (smart contract). 
 
 -   **5. Renting a vehicle (Innovative Solution!):** During the creation of renting function in our smart contract we tried to make high light of blockchain function. We certainly think that we succeeded in that. Why? Lets explan in the next step.
 
