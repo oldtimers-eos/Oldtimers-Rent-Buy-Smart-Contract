@@ -7,10 +7,9 @@ Deploy Oldtimers (Rent & Buy) smart contract on Trust EVM.
 
 ### Pre Requisites
 
-Before running any command, you need to create a `.env` file and set a BIP-39 compatible mnemonic as an environment
-variable.
+Before running any command, you need to create a `.env` file and set a PRIVATE_KEY.
 
-MNEMONIC = "..."
+PRIVATE_KEY = "..."
 
 Then, proceed with installing dependencies:
 
@@ -37,7 +36,7 @@ $ yarn hardhat test
 
 ### Deploy
 
-Deploy the contracts to blockchain network (mumbai):
+Deploy the contracts to blockchain network (Trust EVM):
 
 ```sh
 $ yarn deploy --network trustevm
