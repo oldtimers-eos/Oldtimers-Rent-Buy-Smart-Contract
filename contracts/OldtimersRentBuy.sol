@@ -62,7 +62,7 @@ contract OldtimersRentBuy is ClassicVehicles {
         sentMoneyToVehicleOwner(vehicles[_vehicleID].owner, amountToPay);
     }
 
-    //Sent money from smart contrant to Owner of Vehicle, when somebody rent a vehicle
+    //Sent money from smart contrant to Owner of Vehicle, when somebody rent a vehicle or buy
     function sentMoneyToVehicleOwner(address _to, uint _value) internal {
         payable(_to).transfer(_value);
     }
