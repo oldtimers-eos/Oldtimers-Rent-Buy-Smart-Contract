@@ -12,6 +12,7 @@ interface ClassicVehicles {
         uint256 year;
         string make;
         string model;
+        string vehicleType;
         uint256 time;
         address owner;
     }

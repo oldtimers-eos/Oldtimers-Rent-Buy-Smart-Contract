@@ -27,9 +27,12 @@ contract OldtimersRentBuy is ClassicVehicles {
     }
 
     //Add Classic Vehicles for rent
-    function addVehicle(uint256 year, string memory make, string memory model) public returns (bool _vehicleCreated) {
+    function addVehicle(uint256 year, string memory make, string memory model, string memory vehicleType) public returns (bool _vehicleCreated) {
+        require(keccak256(abi.encodePacked("Car"))==keccak256(abi.encodePacked(vehicleType))  ||
+        keccak256(abi.encodePacked("Motorcycle"))==keccak256(abi.encodePacked(vehicleType)) ||
+        keccak256(abi.encodePacked("Truck"))==keccak256(abi.encodePacked(vehicleType)),"Incorrect Vehicle Type");
         uint256 time = block.timestamp;
-        vehicles[vehicleID] = (ClassicVehicle(year, make, model, time, msg.sender));
+        vehicles[vehicleID] = (ClassicVehicle(year, make, model, vehicleType, time, msg.sender));
         emit newVehicle(_vehicleCreated);
         vehicleOwner[vehicleID] = (VehicleOwner(msg.sender));
         vehicleID++;
@@ -121,6 +124,7 @@ contract OldtimersRentBuy is ClassicVehicles {
     function buyVehicle(uint256 _vehicleID) public payable {
         require(details[_vehicleID].buyAvailable == true, "Only available vehicles for buying can be buy");
         require(vehicles[_vehicleID].owner != msg.sender, "Owner can't buy their own vehicle");
+        require(block.timestamp >= details[_vehicleID].ableToAddDetails,"You can't buy a vehicle when is the vehicle currently rented!");
         uint256 amountToPay;
         amountToPay = details[_vehicleID].priceForVehicle * decimals;
         uint256 amount;

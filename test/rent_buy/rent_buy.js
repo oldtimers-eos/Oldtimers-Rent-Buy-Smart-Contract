@@ -14,7 +14,7 @@ describe("Oldtimers Rent & Buy SC", async function() {
         });
 
         it("User can add vehicle for free -> sucesfully", async () => {
-            await expect(rent.connect(accounts[0]).addVehicle(1965, "Ford", "Mustang")).to.not.be.reverted;
+            await expect(rent.connect(accounts[0]).addVehicle(1965, "Ford", "Mustang", "Car")).to.not.be.reverted;
             expect(await rent.vehicleOwner(1)).to.equal(accounts[0].address);
         });
     
@@ -85,7 +85,7 @@ describe("Oldtimers Rent & Buy SC", async function() {
         });
 
         it("User 2. can add vehicle for free -> sucesfully", async () => {
-            await expect(rent.connect(accounts[2]).addVehicle(1956, "Cadillac", "Eldorado")).to.not.be.reverted;
+            await expect(rent.connect(accounts[2]).addVehicle(1956, "Cadillac", "Eldorado", "Car")).to.not.be.reverted;
             expect(await rent.vehicleOwner(2)).to.equal(accounts[2].address);
         });
 
@@ -94,14 +94,23 @@ describe("Oldtimers Rent & Buy SC", async function() {
         });
 
         it("Owner add avaible buying option for the vehicle -> sucesfully", async () => {
-            await expect(rent.connect(accounts[2]).addDetailsToVehicle(2, "Green", "Beige", "Manual", 200, false, 0, true, 33)).to.not.be.reverted;
+            await expect(rent.connect(accounts[2]).addDetailsToVehicle(2, "Green", "Beige", "Manual", 200, true, 1, true, 33)).to.not.be.reverted;
+        });
+
+        it("User rent the vehicle with ID 2", async () => {
+            await expect(rent.connect(accounts[3]).rentVehicle(2, 2, {value: ethers.utils.parseEther("2.02")})).to.not.be.reverted; 
         });
 
         it("Owner try to buy the vehicle which owns -> failed", async () => {
             await expect(rent.connect(accounts[2]).buyVehicle(2, {value: ethers.utils.parseEther("33.02")})).to.be.rejectedWith("Owner can't buy their own vehicle"); 
         });
 
+        it("User try to buy the vehicle which is currently rented -> failed", async () => {
+            await expect(rent.connect(accounts[3]).buyVehicle(2, {value: ethers.utils.parseEther("22.01")})).to.be.rejectedWith("You can't buy a vehicle when is the vehicle currently rented!"); 
+        });
+
         it("User try to pay less for buying the vehicle -> failed", async () => {
+            await ethers.provider.send('evm_increaseTime', [172800]);
             await expect(rent.connect(accounts[1]).buyVehicle(2, {value: ethers.utils.parseEther("22.01")})).to.be.rejectedWith("You want to pay less than the owner asked for the vehicle"); 
         });
 
