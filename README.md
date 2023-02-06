@@ -88,5 +88,5 @@ c. We map who buy the vehicle, on that way new owner has option to add details a
 
 ### Business Architecture
 
-If you are confused because of the previously explained, don't worry. We have prepared for you [Business Architecture](https://miro.com/app/board/uXjVPq5__rU=/?share_link_id=994333599006). Enjoy! We are available for all questions at the email address office@oldtimersoffer.com
+If you are confused because of the previous explanation, don't worry. We have prepared for you [Business Architecture](https://miro.com/app/board/uXjVPq5__rU=/?share_link_id=994333599006). Enjoy! We are available for all questions at the email address office@oldtimersoffer.com
 
