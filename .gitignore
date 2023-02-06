@@ -1,6 +1,7 @@
 # Ignoring files:
 
 # dependencies
+/.husky
 /node_modules
 /artifacts
 /cache

@@ -10,6 +10,7 @@ import "./tasks/deploy";
 
 import { resolve } from "path";
 
+
 import { config as dotenvConfig } from "dotenv";
 import { HardhatUserConfig } from "hardhat/config";
 import { NetworkUserConfig } from "hardhat/types";
@@ -27,21 +28,16 @@ const chainIds = {
 };
 
 // Ensure that we have all the environment variables we need.
-const mnemonic: string | undefined = process.env.MNEMONIC;
-if (!mnemonic) {
-  throw new Error("Please set your MNEMONIC in a .env file");
+const PRIVATE_KEY: string | undefined = process.env.PRIVATE_KEY;
+if (!PRIVATE_KEY) {
+  throw new Error("Please set your PRIVATE_KEY in a .env file");
 }
-
-
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
   const url: string = "https://api.testnet-dev.trust.one";
   return {
-    accounts: {
-      count: 10,
-      mnemonic,
-      path: "m/44'/60'/0'/0",
-    },
+    accounts: [`0x${PRIVATE_KEY}`]
+,
     chainId: chainIds[network],
     url,
   };
@@ -57,9 +53,6 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      accounts: {
-        mnemonic,
-      },
       chainId: chainIds.hardhat,
     },
     goerli: getChainConfig("goerli"),
@@ -68,7 +61,6 @@ const config: HardhatUserConfig = {
     polygon: getChainConfig("polygon"),
     mumbai: getChainConfig("mumbai"),
   },
-  etherscan: { apiKey: process.env.ETH_SCAN_API_KEY },
   paths: {
     artifacts: "./artifacts",
     cache: "./cache",
