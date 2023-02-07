@@ -22,7 +22,7 @@ const chainIds = {
   hardhat: 31337,
   kovan: 42,
   mainnet: 1,
-  trustevm: 15555,
+  eosevm: 15556,
   polygon: 137,
   mumbai: 80001,
 };
@@ -34,7 +34,7 @@ if (!PRIVATE_KEY) {
 }
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
-  const url: string = "https://api.testnet-dev.trust.one";
+  const url: string = "https://api-testnet.trust.one";
   return {
     accounts: [`0x${PRIVATE_KEY}`]
 ,
@@ -57,7 +57,7 @@ const config: HardhatUserConfig = {
     },
     goerli: getChainConfig("goerli"),
     kovan: getChainConfig("kovan"),
-    trustevm: getChainConfig("trustevm"),
+    eosevm: getChainConfig("eosevm"),
     polygon: getChainConfig("polygon"),
     mumbai: getChainConfig("mumbai"),
   },
