@@ -47,7 +47,7 @@ $ yarn deploy --network eosevm
 Verify the contract:
 
 ```sh
-$ yarn hardhat verify --network trustevm "oldtimersrentbuy"
+$ yarn hardhat verify --network eosevm "oldtimersrentbuy"
 ```
 
 ## Oldtimers Rent & Buy SC Details
